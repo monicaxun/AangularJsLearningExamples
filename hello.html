@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en' ng-app>
+	<head>
+		<!-- <script type="text/javascript" src="http://code.angularjs.org/angular-1.0.1.min.js"></script> -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-controller="InlineEditorController">
+		<div>
+			<input type="text" ng-model="your_name" />
+			<label>Hello {{ your_name || "World!" }}</label>
+		</div>
+		<!-- 测试ng-hide与ng-show对于变量的反应 -->
+		<div>
+
+			Click me: <input type="checkbox" ng-model="checked"><br/>
+			<div>
+			  Show:
+			  <div class="check-element animate-hide" ng-show="checked">
+			    I show up when your checkbox is checked.
+			  </div>
+			</div>
+			<div>
+			  Hide:
+			  <div class="check-element animate-hide" ng-hide="checked">
+			    I hide when your checkbox is checked.
+			  </div>
+			</div>
+
+		</div>
+
+		<!-- 编写Inline Editor -->
+		<div>
+			<div ng-click="hideTooltips()">
+				<div class="tooltip" ng-click="$event.stopPropagation()" ng-show="showTooltips">
+					<input type="text" ng-model="value" />
+				</div>
+
+				<p ng-click="toogleTooltips($event)">{{value}}</p>
+			</div>
+		</div>
+
+	</body>
+</html>
