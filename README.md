@@ -4,7 +4,7 @@ Learning By http://www.apjs.net/
 Most by http://blog.jobbole.com/48979/
 
 Backbone.js
-Aangular.js
+Angular.js
 node.js
 区别和联系
 
