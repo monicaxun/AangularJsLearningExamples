@@ -5,9 +5,27 @@
 		<!-- <script type="text/javascript" src="http://code.angularjs.org/angular-1.0.1.min.js"></script> -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 
-		<script src="script.js"></script>
+		<script src="script/script.js"></script>
+
+		<style type="text/css">
+			form ul li{
+				padding:20px 30px;
+				background-color:#e35885;
+				margin-bottom:8px;
+				box-shadow:0 1px 1px rgba(0,0,0,0.1);
+				cursor:pointer;
+			}
+
+			form ul li span{
+				float:right;
+			}
+
+			form ul li.active{
+				background-color:#8ec16d;
+			}
+		</style>
 	</head>
-	<body ng-controller="InlineEditorController">
+	<body>
 		<div>
 			<input type="text" ng-model="your_name" />
 			<label>Hello {{ your_name || "World!" }}</label>
@@ -32,7 +50,7 @@
 		</div>
 
 		<!-- 编写Inline Editor -->
-		<div>
+		<div ng-controller="InlineEditorController">
 			<div ng-click="hideTooltips()">
 				<div class="tooltip" ng-click="$event.stopPropagation()" ng-show="showTooltips">
 					<input type="text" ng-model="value" />
@@ -41,6 +59,26 @@
 				<p ng-click="toogleTooltips($event)">{{value}}</p>
 			</div>
 		</div>
+
+		<!-- 订单表单 -->
+		<!-- 货币过滤器 -->
+		<!-- ng-repeat绑定(文档)是框架的另一个有用的特性，能够让你遍历数组元素并且生成相应的标记。当某个条目改变或者删除时，它能够智能地更新。 -->
+		<div ng-controller="OrderFormController">
+			<form>
+				<ul>
+					<li ng-repeat="service in services" ng-click="activeStatusExchange(service)" ng-class="{active:service.active}">
+						{{service.name}} <span>{{service.price | currency}}</span>
+					</li>
+				</ul>
+
+				<div class="total">
+					Total: <span>{{total() | currency}}</span>
+				</div>
+			</form>
+		</div>
+
+		<!-- 即时搜索 -->
+
 
 	</body>
 </html>
