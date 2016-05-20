@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+
+		<script type="text/javascript" src="script/instant-search.js"></script>
+	</head>
+	<body ng-app="instantSearch" ng-controller="InstantSearchController">
+		<div>
+			<input type="text" ng-model="searchString" />
+		</div>
+		
+		<!-- filter写法见下 -->
+		<ul>
+			<li ng-repeat="item in items | searchFor:searchString">
+				
+				<a ng-href="{{item.url}}"><img ng-src="{{item.image}}"></a>
+				<p>{{item.title}}</p>
+			</li>
+		</ul>
+	</body>
+</html>
