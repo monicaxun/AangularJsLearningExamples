@@ -10,7 +10,7 @@ function InlineEditorController($scope){
 
 	}
 
-	$scope.toogleTooltips = function(){
+	$scope.toogleTooltips = function(e){
 		e.stopPropagation();
 		$scope.showTooltips = !$scope.showTooltips;
 	}
