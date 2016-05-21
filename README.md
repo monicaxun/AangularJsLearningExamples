@@ -11,3 +11,6 @@ node.js
 git diff 文件名，查看修改内容
 
 ngResource用法参考https://yq.aliyun.com/articles/35977
+
+
+XHR Request: XmlHttpRequest
